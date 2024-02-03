@@ -1,24 +1,37 @@
 <template>
-  <q-card class="my-card">
-    <q-img
-      :src="coverUrl"
-      ratio="1"
-      style="width: 250px"
-      fit="cover"
-      position="0 0"
-      placeholder-src="~assets/placeholder.png"
-    >
-      <div class="absolute-bottom">
-        <div class="text-h6">{{ data.title }}</div>
+  <router-link
+    :to="{ name: 'poemId', params: { id: data.id } }"
+    style="text-decoration: none; color: inherit"
+  >
+    <q-card class="my-card">
+      <q-img
+        :src="coverUrl"
+        :key="coverUrl"
+        ratio="1"
+        style="width: 250px"
+        fit="cover"
+        position="0 0"
+        placeholder-src="~assets/placeholder.png"
+      >
+        <div class="absolute-bottom">
+          <div class="text-h6">{{ data.title }}</div>
+
+          <div
+            v-for="(book, idx) in data.books"
+            :key="book"
+            class="text-caption"
+          >
             <router-link
               :to="{ name: 'bookId', params: { id: data.books_ids[idx] } }"
               style="text-decoration: none; color: inherit"
             >
-          {{ book }}
+              {{ book }}
             </router-link>
-      </div>
-    </q-img>
-  </q-card>
+          </div>
+        </div>
+      </q-img>
+    </q-card>
+  </router-link>
 </template>
 
 <script setup>

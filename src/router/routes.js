@@ -3,6 +3,18 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
+      { path: '', redirect: '/poem' },
+      {
+        path: '/poem',
+        component: () => import('pages/PoemList.vue'),
+        name: 'poem'
+      },
+      {
+        path: '/poem/:id',
+        component: () => import('pages/PoemPage.vue'),
+        name: 'poemId',
+        props: true
+      },
       {
         path: '/book',
         component: () => import('pages/BookList.vue'),

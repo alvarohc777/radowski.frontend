@@ -2,17 +2,15 @@
   <q-page class="column flex row flex-center justify-around">
     <div class="section-container">
       <div class="q-pa-md row justify-center q-gutter-md">
-        <div>
-          <poem-card :data="poemData" :key="poemData"></poem-card>
+        <div v-for="entry in data" :key="entry">
+          <poem-card :data="entry"></poem-card>
         </div>
-        <div>{{ poemData }}</div>
       </div>
     </div>
   </q-page>
 </template>
 
 <script setup>
-const props = defineProps(['id'])
 import { ref, onMounted } from 'vue'
 
 import { api } from 'src/boot/axios'
@@ -21,20 +19,16 @@ import { useQuasar } from 'quasar'
 import PoemCard from 'src/components/PoemCard.vue'
 
 const $q = useQuasar()
-
-const poemData = ref([])
+const data = ref(null)
 
 onMounted(() => {
   loadData()
 })
 function loadData () {
-  console.log('pops:  ', props.id)
-  console.log(`api/book/${props.id}`)
   api
-    .get(`api/poem/${props.id}`)
+    .get('api/poem/')
     .then(response => {
-      poemData.value = response.data
-      console.log('poemData', poemData.value)
+      data.value = response.data
     })
     .catch(() => {
       $q.notify({
