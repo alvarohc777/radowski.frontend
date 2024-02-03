@@ -10,9 +10,12 @@
     >
       <div class="absolute-bottom">
         <div class="text-h6">{{ data.title }}</div>
-        <div v-for="book in data.books" :key="book" class="text-caption">
+            <router-link
+              :to="{ name: 'bookId', params: { id: data.books_ids[idx] } }"
+              style="text-decoration: none; color: inherit"
+            >
           {{ book }}
-        </div>
+            </router-link>
       </div>
     </q-img>
   </q-card>

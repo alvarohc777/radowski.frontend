@@ -1,21 +1,30 @@
 <template>
-  <q-card class="my-card">
-    <q-img
-      :src="coverUrl"
-      ratio="1"
-      style="min-width: 500px"
-      fit="cover"
-      position="0 0"
-      placeholder-src="~assets/placeholder.png"
-    >
-      <div class="absolute-bottom">
-        <div class="text-h6">{{ data.title }}</div>
-        <div class="text-caption">
-          poems: {{ data.num_poems }} | {{ data.language }}
+  <router-link
+    :to="{ name: 'bookId', params: { id: data.id } }"
+    style="text-decoration: none; color: inherit"
+  >
+    <q-card class="my-card">
+      <q-img
+        :src="coverUrl"
+        :key="coverUrl"
+        ratio="1"
+        style="min-width: 500px"
+        fit="cover"
+        position="0 0"
+        placeholder-src="~assets/placeholder.png"
+      >
+        <div class="absolute-bottom">
+          <div class="text-h6">
+            {{ data.title }}
+          </div>
+
+          <div class="text-caption">
+            poems: {{ data.num_poems }} | {{ data.language }}
+          </div>
         </div>
-      </div>
-    </q-img>
-  </q-card>
+      </q-img>
+    </q-card>
+  </router-link>
 </template>
 
 <script setup>

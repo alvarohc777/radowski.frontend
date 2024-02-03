@@ -3,8 +3,12 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '/poem', component: () => import('pages/PoemPage.vue') },
-      { path: '/book', component: () => import('pages/BookPage.vue') }
+      {
+        path: '/book/:id',
+        name: 'bookId',
+        component: () => import('pages/BookPage.vue'),
+        props: true
+      }
     ]
   },
 
