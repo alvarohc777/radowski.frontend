@@ -4,6 +4,12 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {
+        path: '/book',
+        component: () => import('pages/BookList.vue'),
+        // alias: 'book-test',
+        name: 'book-test'
+      },
+      {
         path: '/book/:id',
         name: 'bookId',
         component: () => import('pages/BookPage.vue'),
