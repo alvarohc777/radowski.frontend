@@ -10,8 +10,14 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
         <q-toolbar-title> Rada </q-toolbar-title>
+        <div class="q-pa-md q-gutter-sm">
+          <q-breadcrumbs active-color="white" style="font-size: 16px">
+            <q-breadcrumbs-el label="Home" icon="home" />
+            <q-breadcrumbs-el label="Components" icon="widgets" />
+            <q-breadcrumbs-el label="Toolbar" />
+          </q-breadcrumbs>
+        </div>
 
         <div>@radowski.7</div>
       </q-toolbar>
@@ -41,16 +47,10 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'Instagram',
+    caption: '@radowski.7',
+    icon: 'fa-brands fa-instagram',
+    link: 'https://www.instagram.com/radowski.7/'
   },
   {
     title: 'VSCO',
@@ -60,10 +60,10 @@ const linksList = [
     link: 'https://vsco.co/alvarohc777/gallery'
   },
   {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'Link Tree',
+    caption: 'linktr.ee/radowski',
+    icon: 'fa-solid fa-link',
+    link: 'https://linktr.ee/radowski'
   }
 ]
 
