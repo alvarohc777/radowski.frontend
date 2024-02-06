@@ -1,14 +1,14 @@
 <template>
-  <router-link
-    :to="{ name: 'bookId', params: { id: data.id } }"
-    style="text-decoration: none; color: inherit"
-  >
-    <q-card class="my-card">
+  <q-card class="my-card">
+    <router-link
+      :to="{ name: 'bookId', params: { id: data.id } }"
+      style="text-decoration: none; color: inherit"
+    >
       <q-img
         :src="coverUrl"
         :key="coverUrl"
         ratio="1"
-        style="min-width: 500px"
+        style="min-width: 300px"
         fit="cover"
         position="0 0"
         placeholder-src="~assets/placeholder.png"
@@ -19,12 +19,15 @@
           </div>
 
           <div class="text-caption">
-            poems: {{ data.num_poems }} | {{ data.language }}
+            poems: {{ data.num_poems }} |
+            <li v-for="language in data.language_list" :key="language">
+              {{ language.name }}
+            </li>
           </div>
         </div>
       </q-img>
-    </q-card>
-  </router-link>
+    </router-link>
+  </q-card>
 </template>
 
 <script setup>
@@ -41,6 +44,6 @@ const coverUrl = data.value.cover_url + tokenAzure
 <style>
 .my-card {
   width: 100%;
-  /* max-width: 350px; */
+  max-width: 500px;
 }
 </style>

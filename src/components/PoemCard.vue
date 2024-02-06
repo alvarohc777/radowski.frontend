@@ -16,16 +16,12 @@
         <div class="absolute-bottom">
           <div class="text-h6">{{ data.title }}</div>
 
-          <div
-            v-for="(book, idx) in data.books"
-            :key="book"
-            class="text-caption"
-          >
+          <div v-for="book in data.book_list" :key="book" class="text-caption">
             <router-link
-              :to="{ name: 'bookId', params: { id: data.books_ids[idx] } }"
+              :to="{ name: 'bookId', params: { id: book.id } }"
               style="text-decoration: none; color: inherit"
             >
-              {{ book }}
+              {{ book.title }}
             </router-link>
           </div>
         </div>

@@ -16,6 +16,12 @@ const routes = [
         props: true
       },
       {
+        path: '/poem/content/:id',
+        component: () => import('pages/PoemContentPage.vue'),
+        name: 'poemContentId',
+        props: true
+      },
+      {
         path: '/book',
         component: () => import('pages/BookList.vue'),
         // alias: 'book-test',
