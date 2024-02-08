@@ -1,9 +1,18 @@
 <template>
   <q-page class="column flex row flex-center justify-around">
     <div class="section-container">
-      <div class="q-pa-md row justify-center q-gutter-md">
+      <div class="q-pa-md column flex-center justify-center q-gutter-md">
         <div>
           <poem-card :data="poemData" :key="poemData"></poem-card>
+        </div>
+
+        <div v-for="content in poemData.content_list" :key="content">
+          <router-link
+            :to="{ name: 'poemContentId', params: { id: content.id } }"
+            style="text-decoration: none; color: inherit"
+          >
+            {{ content.title }}
+          </router-link>
         </div>
         <div>{{ poemData }}</div>
       </div>

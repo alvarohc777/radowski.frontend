@@ -1,11 +1,21 @@
 <template>
   <q-page class="column flex row flex-center justify-around">
     <div class="section-container">
-      <div class="q-pa-md row justify-center q-gutter-md">
+      <div class="q-pa-md row flex-center justify-center q-gutter-md">
         <div>
-          <poem-card :data="poemData" :key="poemData"></poem-card>
+          <poem-content-card
+            :data="poemData"
+            :key="poemData"
+          ></poem-content-card>
+        </div>
+        <div class="text-body1">
+          Body 1. Lorem ipsum dolor sit amet\n, consectetur adipisicing elit.
+          Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
+          consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+          fugiat deleniti? Eum quasi quidem quibusdam.
         </div>
         <div>{{ poemData }}</div>
+        <content-body-card> </content-body-card>
       </div>
     </div>
   </q-page>
@@ -18,8 +28,8 @@ import { ref, onMounted } from 'vue'
 import { api } from 'src/boot/axios'
 import { useQuasar } from 'quasar'
 
-import PoemCard from 'src/components/PoemCard.vue'
-
+import PoemContentCard from 'src/components/PoemContentCard.vue'
+import ContentBodyCard from 'src/components/ContentBodyCard.vue'
 const $q = useQuasar()
 
 const poemData = ref([])

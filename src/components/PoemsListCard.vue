@@ -1,24 +1,23 @@
 <template>
-  <div class="column flex flex-center justify-around">
-    <div style="min-width: 200px">
-      <q-list
-        dense
-        bordered
-        padding
-        class="rounded-borders"
-        v-for="content in data"
-        :key="content"
-      >
-        <q-item v-for="entry in content.content" :key="entry">
-          <router-link
-            :to="{ name: 'poemId', params: { poemId: entry.id } }"
-            style="text-decoration: none; color: inherit"
-          >
-            {{ entry.title }}
-          </router-link>
-        </q-item>
-      </q-list>
-    </div>
+  <div class="row flex flex-center justify-center">
+    <q-list
+      style="min-width: 350px"
+      dense
+      bordered
+      padding
+      class="rounded-borders"
+      v-for="content in data"
+      :key="content"
+    >
+      <q-item v-for="entry in content.content" :key="entry.id">
+        <router-link
+          :to="{ name: 'poemContentId', params: { id: entry.id } }"
+          style="text-decoration: none; color: inherit"
+        >
+          {{ entry.title }}
+        </router-link>
+      </q-item>
+    </q-list>
   </div>
 </template>
 <script setup>
