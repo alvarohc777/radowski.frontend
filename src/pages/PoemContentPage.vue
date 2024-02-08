@@ -1,21 +1,18 @@
 <template>
   <q-page class="column flex row flex-center justify-around">
     <div class="section-container">
-      <div class="q-pa-md row flex-center justify-center q-gutter-md">
-        <div>
-          <poem-content-card
-            :data="poemData"
-            :key="poemData"
-          ></poem-content-card>
+      <div class="q-pa-md column flex-center justify-center q-gutter-md">
+        <poem-content-card :data="poemData" :key="poemData"></poem-content-card>
+
+        <!-- <div>{{ poemData }}</div> -->
+        <div class="q-pa-md column flex-center justify-center q-gutter-md">
+          <content-body-card
+            :v-if="poemData.body"
+            :title="poemData.title"
+            :body="body"
+          >
+          </content-body-card>
         </div>
-        <div class="text-body1">
-          Body 1. Lorem ipsum dolor sit amet\n, consectetur adipisicing elit.
-          Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-          consectetur, neque doloribus, cupiditate numquam dignissimos laborum
-          fugiat deleniti? Eum quasi quidem quibusdam.
-        </div>
-        <div>{{ poemData }}</div>
-        <content-body-card> </content-body-card>
       </div>
     </div>
   </q-page>
@@ -33,6 +30,10 @@ import ContentBodyCard from 'src/components/ContentBodyCard.vue'
 const $q = useQuasar()
 
 const poemData = ref([])
+const body = ref([])
+// const body = computed(() => {
+//   return poemData.value.body.split('\n')
+// })
 
 onMounted(() => {
   loadData()
@@ -44,7 +45,7 @@ function loadData () {
     .get(`api/poem/content/${props.id}`)
     .then(response => {
       poemData.value = response.data
-      console.log('poemData', poemData.value)
+      body.value = response.data.body.split('\n')
     })
     .catch(() => {
       $q.notify({

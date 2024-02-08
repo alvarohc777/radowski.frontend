@@ -8,7 +8,7 @@
         :src="coverUrl"
         :key="coverUrl"
         ratio="1"
-        style="min-width: 500px"
+        style="min-width: 250px"
         fit="cover"
         position="0 0"
         placeholder-src="~assets/placeholder.png"
@@ -44,6 +44,6 @@ const coverUrl = data.value.cover_url + tokenAzure
 <style>
 .my-card {
   width: 100%;
-  max-width: 500px;
+  max-width: 350px;
 }
 </style>

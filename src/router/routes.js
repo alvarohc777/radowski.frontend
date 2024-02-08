@@ -25,7 +25,7 @@ const routes = [
         path: '/book',
         component: () => import('pages/BookList.vue'),
         // alias: 'book-test',
-        name: 'book-test'
+        name: 'book'
       },
       {
         path: '/book/:id',

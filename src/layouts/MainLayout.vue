@@ -12,10 +12,21 @@
         />
         <q-toolbar-title> Rada </q-toolbar-title>
         <div class="q-pa-md q-gutter-sm">
-          <q-breadcrumbs active-color="white" style="font-size: 16px">
-            <q-breadcrumbs-el label="Home" icon="home" />
-            <q-breadcrumbs-el label="Components" icon="widgets" />
-            <q-breadcrumbs-el label="Toolbar" />
+          <q-breadcrumbs
+            active-color="white"
+            style="font-size: 16px"
+            separator="|"
+          >
+            <q-breadcrumbs-el
+              label="Poems"
+              icon="fa-solid fa-pen-fancy"
+              :to="{ name: 'poem' }"
+            />
+            <q-breadcrumbs-el
+              label="books"
+              icon="fa-solid fa-book"
+              :to="{ name: 'book' }"
+            />
           </q-breadcrumbs>
         </div>
 
