@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  radowski.frontend:
+    container_name: radowski.frontend
+    image: radowski.frontend:v1.3
+
+    ports:
+      - 443:443
+      - 80:80
+
+    entrypoint: ["nginx", "-g", "daemon off;"]
