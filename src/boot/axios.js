@@ -10,8 +10,12 @@ import axios from 'axios'
 // const api = axios.create({
 //   baseURL: 'http://127.0.0.1:8000/'
 // })
+const baseURL = process.env.DEV
+  ? 'http://localhost:8000/'
+  : 'https://radowskibackend.azurewebsites.net/'
+console.log(baseURL)
 const api = axios.create({
-  baseURL: 'https://radowski.azurewebsites.net/'
+  baseURL
 })
 
 export default boot(({ app }) => {
