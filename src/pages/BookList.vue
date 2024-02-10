@@ -1,5 +1,5 @@
 <template>
-  <q-page class="column flex row flex-center justify-around">
+  <q-page class="row flex flex-center justify-around">
     <div class="section-container">
       <div class="q-pa-md row justify-center q-gutter-md">
         <div v-for="entry in data" :key="entry">
@@ -41,9 +41,9 @@ function loadData () {
 }
 </script>
 
-<style>
+<style scoped>
 .section-container {
-  width: 60%;
+  width: 70%;
   min-width: 350px;
   margin-bottom: 40px;
 }
