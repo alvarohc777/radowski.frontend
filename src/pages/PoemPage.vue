@@ -6,15 +6,16 @@
           <poem-card :data="poemData" :key="poemData"></poem-card>
         </div>
 
-        <div v-for="content in poemData.content_list" :key="content">
+        <div class="q-pa-md column flex-center justify-around q-gutter-md">
           <router-link
+            v-for="content in poemData.content_list"
+            :key="content"
             :to="{ name: 'poemContentId', params: { id: content.id } }"
             style="text-decoration: none; color: inherit"
           >
             {{ content.title }}
           </router-link>
         </div>
-        <div>{{ poemData }}</div>
       </div>
     </div>
   </q-page>
