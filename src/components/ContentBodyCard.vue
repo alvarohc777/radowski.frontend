@@ -1,7 +1,9 @@
 <template>
   <q-card class="my-card">
     <q-card-section class="text-body1 poem">
-      <p v-for="line in body" :key="line">{{ line }}</p>
+      <p v-for="line in body" :key="line">
+        <br v-if="line === ''" />{{ line }}
+      </p>
     </q-card-section>
   </q-card>
 </template>
