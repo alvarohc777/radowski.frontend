@@ -7,6 +7,7 @@
       <q-img
         :src="coverUrl"
         :key="coverUrl"
+        :alt="data.title"
         ratio="1"
         style="width: 250px"
         fit="cover"
