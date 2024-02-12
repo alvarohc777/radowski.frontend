@@ -2,7 +2,7 @@
   <q-page class="column flex flex-center justify-center">
     <div class="section-container">
       <div class="q-pa-md row justify-center q-gutter-md">
-        <book-card :data="bookData" :key="bookData"></book-card>
+        <book-card-link :data="bookData" :key="bookData"></book-card-link>
       </div>
     </div>
     <div class="section-container">
@@ -23,7 +23,7 @@ import { ref, onMounted } from 'vue'
 import { api } from 'src/boot/axios'
 import { useQuasar } from 'quasar'
 
-import BookCard from 'src/components/BookCard.vue'
+import BookCardLink from 'src/components/BookCardLink.vue'
 import PoemsListCard from 'src/components/PoemsListCard.vue'
 
 const $q = useQuasar()
