@@ -1,11 +1,13 @@
 <template>
   <q-page class="row flex flex-center justify-around">
     <div class="section-container">
-      <div class="q-pa-md row justify-center q-gutter-md">
-        <div v-for="entry in data" :key="entry">
-          <book-card :data="entry"></book-card>
+      <q-scroll-area style="height: 75vh; max-width: 100%">
+        <div class="q-pa-md row justify-center q-gutter-md">
+          <div v-for="entry in data" :key="entry">
+            <book-card :data="entry"></book-card>
+          </div>
         </div>
-      </div>
+      </q-scroll-area>
     </div>
   </q-page>
 </template>

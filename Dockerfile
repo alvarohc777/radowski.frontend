@@ -13,3 +13,5 @@ RUN quasar build
 FROM nginx:1.25.3-alpine3.18 AS production-stage
 COPY --from=build /radowski/dist/spa/ /usr/share/nginx/html
 COPY nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+
+# ocker image push radowski.azurecr.io/radowski.frontend:v1.4
