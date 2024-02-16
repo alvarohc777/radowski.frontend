@@ -10,6 +10,7 @@
             :v-if="poemData.body"
             :title="poemData.title"
             :body="body"
+            :dedication="dedication"
           >
           </content-body-card>
         </div>
@@ -20,7 +21,7 @@
 
 <script setup>
 const props = defineProps(['id'])
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 import { api } from 'src/boot/axios'
 import { useQuasar } from 'quasar'
@@ -31,13 +32,18 @@ const $q = useQuasar()
 
 const poemData = ref([])
 const body = ref([])
-// const body = computed(() => {
-//   return poemData.value.body.split('\n')
-// })
+const dedication = ref('')
 
-onMounted(() => {
-  loadData()
-})
+const createDedication = (dedication, languageId) => {
+  if (languageId === 1) {
+    return `para ${dedication}`
+  }
+  if (languageId === 2) {
+    return `for ${dedication}`
+  }
+}
+
+loadData()
 function loadData () {
   console.log('pops:  ', props.id)
   console.log(`api/book/content/${props.id}`)
@@ -46,7 +52,14 @@ function loadData () {
     .then(response => {
       poemData.value = response.data
       body.value = response.data.body.split('\n')
+      if (poemData.value.dedication) {
+        dedication.value = createDedication(
+          poemData.value.dedication,
+          poemData.value.language_id
+        )
+      }
     })
+
     .catch(() => {
       $q.notify({
         color: 'negative',

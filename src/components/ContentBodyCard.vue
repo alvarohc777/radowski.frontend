@@ -1,6 +1,9 @@
 <template>
   <q-card class="my-card">
     <q-card-section class="text-body1 poem">
+      <div class="text-overline text-right text-italic" v-if="dedication">
+        {{ dedication }}
+      </div>
       <p v-for="line in body" :key="line">
         <br v-if="line === ''" />{{ line }}
       </p>
@@ -10,9 +13,9 @@
 <script setup>
 import { toRefs } from 'vue'
 
-const props = defineProps(['title', 'body'])
+const props = defineProps(['title', 'body', 'dedication'])
 
-const { body } = toRefs(props)
+const { body, dedication } = toRefs(props)
 </script>
 <style scoped>
 .poem {
