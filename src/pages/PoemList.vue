@@ -4,17 +4,20 @@
       <div style="min-width: 150px">
         <q-select
           borderless
+          dense
           v-model="selectedBook"
           :options="bookOptions"
           label="Books"
+          options-dense
         />
       </div>
       <q-space />
 
       <q-input
         dense
+        borderless=""
         v-model="title"
-        input-class="text-right"
+        label="poem title"
         class="q-ml-md"
         color="grey-3"
       >
@@ -58,7 +61,7 @@ const visible = ref(false)
 
 const books = ref([])
 const bookOptions = ref([])
-const selectedBook = ref('-')
+const selectedBook = ref('')
 
 const title = ref('')
 const removeDiacritics = str => {

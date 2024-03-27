@@ -40,11 +40,12 @@ const props = defineProps(['data'])
 const { data } = toRefs(props)
 
 const coverUrl = data.value.cover_url + tokenAzure
+console.log(coverUrl)
 </script>
 
 <style>
 .my-card {
   width: 100%;
-  max-width: 350px;
+  max-width: 600px;
 }
 </style>
