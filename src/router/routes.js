@@ -3,7 +3,7 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', redirect: '/poem' },
+      { path: '', redirect: '/book' },
       {
         path: '/poem',
         component: () => import('pages/PoemList.vue'),
