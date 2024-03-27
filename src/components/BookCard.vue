@@ -9,7 +9,7 @@
         :key="coverUrl"
         :alt="data.title"
         ratio="1"
-        style="min-width: 350px"
+        style="min-width: 250px"
         fit="cover"
         position="0 0"
         placeholder-src="~assets/placeholder.png"

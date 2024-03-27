@@ -45,7 +45,7 @@ function loadData () {
 
 <style scoped>
 .section-container {
-  width: 70%;
+  width: 50%;
   min-width: 350px;
   margin-bottom: 40px;
 }
