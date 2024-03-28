@@ -5,13 +5,18 @@
         :src="coverUrl"
         :key="coverUrl"
         :alt="data.title"
-        ratio="1"
-        style="min-width: 350px"
+        ratio="2.7"
+        style="width: 100%"
         fit="cover"
-        position="0 0"
+        position="0 -40px"
         placeholder-src="~assets/placeholder.png"
       >
-        <div class="absolute-bottom" :href="pdfUrl" target="_blank">
+        <div
+          class="absolute-bottom"
+          :href="pdfUrl"
+          target="_blank"
+          style="min-height: 100%"
+        >
           <div class="text-h6 text-left">
             {{ data.title }}
           </div>
@@ -57,9 +62,10 @@ const pdfUrl = data.value.pdf_url + tokenAzure
 // }
 </script>
 
-<style>
+<style scoped>
 .my-card {
   width: 100%;
-  max-width: 350px;
+  max-width: 600px;
+  margin-left: 0;
 }
 </style>
