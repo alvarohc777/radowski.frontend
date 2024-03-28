@@ -2,24 +2,12 @@
   <q-page class="column flex row flex-center justify-around">
     <div class="section-container">
       <div class="q-pa-md column flex-center justify-center q-gutter-md">
-        <poem-content-card :data="poemData" :key="poemData"></poem-content-card>
-
-        <!-- <div>{{ poemData }}</div> -->
-        <!-- <div class="q-pa-md column flex-center justify-center q-gutter-md">
-          <content-body-card
-            :v-if="poemData.body"
-            :title="poemData.title"
-            :body="body"
-            :dedication="dedication"
-          >
-          </content-body-card>
-        </div> -->
-      </div>
-    </div>
-    <div class="section-container">
-      <div class="q-pa-md column flex-center justify-center q-gutter-md">
         <q-card class="my-card" flat bordered>
-          <q-card-section horizontal>
+          <q-card-section vertical>
+            <poem-content-card
+              :data="poemData"
+              :key="poemData"
+            ></poem-content-card>
             <content-body-card
               :v-if="poemData.body"
               :title="poemData.title"
@@ -27,47 +15,10 @@
               :dedication="dedication"
             >
             </content-body-card>
-
-            <q-img
-              class="col-5"
-              :src="coverUrl"
-              :key="coverUrl"
-              placeholder-src="~assets/placeholder.png"
-            />
           </q-card-section>
         </q-card>
       </div>
     </div>
-    <q-card class="my-card" flat bordered>
-      <q-card-section horizontal>
-        <q-card-section class="q-pt-xs{}">
-          <div class="text-overline">Overline</div>
-          <div class="text-h5 q-mt-sm q-mb-xs">{{ poemData.title }}</div>
-          <content-body-card
-            :v-if="poemData.body"
-            :title="poemData.title"
-            :body="body"
-            :dedication="dedication"
-          >
-          </content-body-card>
-        </q-card-section>
-
-        <q-card-section class="col-4 flex flex-center">
-          <q-img
-            class="rounded-borders"
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          />
-        </q-card-section>
-      </q-card-section>
-
-      <q-separator />
-
-      <q-card-actions>
-        <q-btn flat round icon="event" />
-        <q-btn flat> 7:30PM </q-btn>
-        <q-btn flat color="primary"> Reserve </q-btn>
-      </q-card-actions>
-    </q-card>
   </q-page>
 </template>
 
@@ -128,10 +79,16 @@ function loadData () {
 }
 </script>
 
-<style>
+<style scoped>
 .section-container {
   width: 60%;
   min-width: 350px;
-  margin-bottom: 40px;
+  margin: 40px 0 40px 0;
+}
+
+.my-card {
+  width: 100%;
+  max-width: 350px;
+  margin: 0;
 }
 </style>

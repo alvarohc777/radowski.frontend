@@ -1,10 +1,12 @@
 <template>
   <q-card class="my-card">
     <q-card-section class="text-body1 poem">
-      <q-scroll-area style="height: 50vh; max-width: 100%">
-        <div class="text-overline text-right text-italic" v-if="dedication">
-          {{ dedication }}
-        </div>
+      <div class="text-overline text-right text-italic" v-if="dedication">
+        {{ dedication }}
+      </div>
+      <q-scroll-area
+        style="height: 65vh; max-width: 100%; padding: 0px 0 10px 0"
+      >
         <p v-for="line in body" :key="line">
           <br v-if="line === ''" />{{ line }}
         </p>
@@ -34,6 +36,7 @@ const { body, dedication } = toRefs(props)
   width: 100%;
   max-width: 600px;
   min-width: 300px;
+  padding: 0;
   margin: 0;
 }
 </style>

@@ -8,13 +8,13 @@
         :src="coverUrl"
         :key="coverUrl"
         :alt="data.title"
-        ratio="1"
-        style="width: 250px"
+        ratio="3.2"
+        style="width: 100%"
         fit="cover"
-        position="0 0"
+        position="0 -40px"
         placeholder-src="~assets/placeholder.png"
       >
-        <div class="absolute-bottom">
+        <div class="absolute-bottom" style="min-height: 100px">
           <div class="text-h6">{{ data.title }}</div>
 
           <div v-for="book in data.books" :key="book" class="text-caption">
@@ -43,7 +43,7 @@ const coverUrl = data.value.cover_url + tokenAzure
 console.log(coverUrl)
 </script>
 
-<style>
+<style scoped>
 .my-card {
   width: 100%;
   max-width: 600px;
