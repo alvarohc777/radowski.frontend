@@ -11,7 +11,7 @@ import axios from 'axios'
 //   baseURL: 'http://127.0.0.1:8000/'
 // })
 const baseURL = process.env.DEV
-  ? 'http://localhost:8000/'
+  ? 'https://radowskibackend.azurewebsites.net/'
   : 'https://radowskibackend.azurewebsites.net/'
 console.log(baseURL)
 const api = axios.create({
