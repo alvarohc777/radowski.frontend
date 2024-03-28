@@ -2,18 +2,21 @@
   <q-page class="column flex row flex-center justify-around">
     <div class="section-container">
       <div class="q-pa-md column flex-center justify-center q-gutter-md">
-        <poem-content-card :data="poemData" :key="poemData"></poem-content-card>
-
-        <!-- <div>{{ poemData }}</div> -->
-        <div class="q-pa-md column flex-center justify-center q-gutter-md">
-          <content-body-card
-            :v-if="poemData.body"
-            :title="poemData.title"
-            :body="body"
-            :dedication="dedication"
-          >
-          </content-body-card>
-        </div>
+        <q-card class="my-card" flat bordered>
+          <q-card-section vertical>
+            <poem-content-card
+              :data="poemData"
+              :key="poemData"
+            ></poem-content-card>
+            <content-body-card
+              :v-if="poemData.body"
+              :title="poemData.title"
+              :body="body"
+              :dedication="dedication"
+            >
+            </content-body-card>
+          </q-card-section>
+        </q-card>
       </div>
     </div>
   </q-page>
@@ -33,6 +36,10 @@ const $q = useQuasar()
 const poemData = ref([])
 const body = ref([])
 const dedication = ref('')
+const token =
+  '?sv=2022-11-02&ss=bfqt&srt=sco&sp=r&se=2024-12-31T12:27:34Z&st=2024-02-12T04:27:34Z&spr=https&sig=fOf%2Fsnurp420W8P%2BPxPcbIR56eLCGJ8pu4OjXiWj8cY%3D'
+
+const coverUrl = ref('')
 
 const createDedication = (dedication, languageId) => {
   if (languageId === 1) {
@@ -58,6 +65,7 @@ function loadData () {
           poemData.value.language_id
         )
       }
+      coverUrl.value = poemData.value.cover_url + token
     })
 
     .catch(() => {
@@ -71,10 +79,16 @@ function loadData () {
 }
 </script>
 
-<style>
+<style scoped>
 .section-container {
   width: 60%;
   min-width: 350px;
-  margin-bottom: 40px;
+  margin: 40px 0 40px 0;
+}
+
+.my-card {
+  width: 100%;
+  max-width: 350px;
+  margin: 0;
 }
 </style>
