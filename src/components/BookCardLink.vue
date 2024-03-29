@@ -15,7 +15,7 @@
           <q-icon
             name="fa-solid fa-file-arrow-down"
             size="sm"
-            color="warning"
+            color="brown-12"
           />
         </div>
         <div
