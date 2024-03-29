@@ -1,18 +1,5 @@
 <template>
   <q-page class="column flex flex-center justify-center">
-    <!-- <div class="section-container">
-      <div class="q-pa-md row justify-center q-gutter-md">
-        <book-card-link :data="bookData" :key="bookData"></book-card-link>
-      </div>
-    </div>
-    <div class="section-container">
-      <div class="q-pa-md row justify-center q-gutter-md">
-        <poems-list-card
-          :data="contentList"
-          :key="contentList"
-        ></poems-list-card>
-      </div>
-    </div> -->
     <div class="section-container">
       <div class="q-pa-md column flex-center justify-center q-gutter-md">
         <q-card class="my-card" flat bordered>
@@ -20,6 +7,7 @@
             <book-card-link :data="bookData" :key="bookData"></book-card-link>
             <poems-list-card
               :data="contentList"
+              :languageList="languageList"
               :key="contentList"
             ></poems-list-card>
           </q-card-section>
@@ -44,6 +32,7 @@ const $q = useQuasar()
 // const contentList = ref(null)
 const bookData = ref([])
 const contentList = ref([])
+const languageList = ref([])
 
 onMounted(() => {
   loadData()
@@ -56,6 +45,7 @@ function loadData () {
     .then(response => {
       bookData.value = response.data
       contentList.value = response.data.content
+      languageList.value = response.data.language_list
     })
     .catch(() => {
       $q.notify({
