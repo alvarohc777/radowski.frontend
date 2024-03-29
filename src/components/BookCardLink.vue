@@ -5,12 +5,19 @@
         :src="coverUrl"
         :key="coverUrl"
         :alt="data.title"
-        ratio="2.7"
+        ratio="3.2"
         style="width: 100%"
         fit="cover"
         position="0 -40px"
         placeholder-src="~assets/placeholder.png"
       >
+        <div class="absolute-bottom-right transparent">
+          <q-icon
+            name="fa-solid fa-file-arrow-down"
+            size="sm"
+            color="warning"
+          />
+        </div>
         <div
           class="absolute-bottom"
           :href="pdfUrl"
@@ -21,12 +28,12 @@
             {{ data.title }}
           </div>
 
-          <div class="text-caption text-left">
+          <!-- <div class="text-caption text-left">
             poems: {{ data.num_poems }} |
             <li v-for="language in data.language_list" :key="language">
               {{ language.name }}
             </li>
-          </div>
+          </div> -->
         </div>
       </q-img>
     </a>
